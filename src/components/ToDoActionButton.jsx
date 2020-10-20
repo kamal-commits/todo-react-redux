@@ -8,9 +8,9 @@ import Icon from './Icon'
 const ToDoActionButton = ({ TodoId }) => {
 	return (
 		<Box display='flex' justifyContent='flex-end'>
-			<Icon icon={<EditIcon />} action='edit' id={TodoId} />
-			<Icon icon={<DeleteIcon />} action='delete' id={TodoId} />
-			<Icon icon={<DoneAllIcon />} action='done' id={TodoId} />
+			<Icon icon={<EditIcon />} action='Edit' id={TodoId} />
+			<Icon icon={<DeleteIcon />} action='Delete' id={TodoId} />
+			<Icon icon={<DoneAllIcon />} action='Mark' id={TodoId} />
 		</Box>
 	)
 }

@@ -19,18 +19,20 @@ const Icon = ({ icon, id, action }) => {
 	}
 
 	const actionTodo = () => {
-		if (action === 'edit') {
+		if (action === 'Edit') {
 			return editTheTodo(id)
-		} else if (action === 'delete') {
+		} else if (action === 'Delete') {
 			return deleteTheTodo(id)
-		} else if (action === 'done') {
+		} else if (action === 'Mark') {
 			return toggleTheTodo(id)
 		}
 	}
 	return (
+	<Tooltip title={action}>
 		<IconButton color='inherit' onClick={() => actionTodo()}>
 			{icon}
 		</IconButton>
+		</Tooltip>
 	)
 }
 
