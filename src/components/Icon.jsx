@@ -1,7 +1,5 @@
-import { IconButton,Tooltip } from '@material-ui/core'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteTodo, editTodo, toggleTodo } from '../redux/todoActions'
 
 const Icon = ({ icon, id, action }) => {
 	const dispatch = useDispatch()
