@@ -40,6 +40,7 @@ const ToDoList = () => {
 							Todos={item}
 							completed={item.completed}
 							update={item.update}
+							editRequest={item.editRequest}
 						/>
 					</Grid>
 				))

@@ -1,7 +1,9 @@
+import { IconButton, Tooltip } from '@material-ui/core'
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import { deleteTodo, editTodo, toggleTodo, updateTodo } from '../redux/todoActions'
 
-const Icon = ({ icon, id, action }) => {
+const Icon = ({ icon, id, action, data }) => {
 	const dispatch = useDispatch()
 
 	const deleteTheTodo = (id) => {
@@ -16,6 +18,9 @@ const Icon = ({ icon, id, action }) => {
 		dispatch(editTodo(id))
 	}
 
+	const updateTheTodo = (id, data) => {
+		dispatch(updateTodo(id, data))
+	}
 	const actionTodo = () => {
 		if (action === 'Edit') {
 			return editTheTodo(id)
@@ -23,13 +28,15 @@ const Icon = ({ icon, id, action }) => {
 			return deleteTheTodo(id)
 		} else if (action === 'Mark') {
 			return toggleTheTodo(id)
+		} else if (action === 'Update') {
+			return updateTheTodo(id, data)
 		}
 	}
 	return (
-	<Tooltip title={action}>
-		<IconButton color='inherit' onClick={() => actionTodo()}>
-			{icon}
-		</IconButton>
+		<Tooltip title={action} arrow>
+			<IconButton color='inherit' onClick={() => actionTodo()}>
+				{icon}
+			</IconButton>
 		</Tooltip>
 	)
 }

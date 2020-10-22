@@ -18,11 +18,18 @@ const ToDoForm = () => {
 	const classes = useStyles()
 	const dispatch = useDispatch()
 
+	const validation = () => {
+		var check = /^[a-zA-Z ]*$/
+		if (!todo.match(check)) {
+			return alert('Enter Only Alphabets ')
+		}
+	}
 	const handleAddTodo = () => {
 		if (todo === '') {
 			return alert('Please Enter Todo')
 		}
 		dispatch(addTodo(todo))
+		setTodo('')
 	}
 	return (
 		<Box className={classes.root}>
@@ -31,9 +38,11 @@ const ToDoForm = () => {
 				placeholder='Enter Todo'
 				fullWidth={true}
 				onChange={(event) => setTodo(event.target.value)}
+				value={todo}
 				required
+				onKeyPress={validation}
 			/>
-			<IconButton color='inherit' onClick={() => handleAddTodo()}>
+			<IconButton color='inherit' onClick={handleAddTodo}>
 				<AddAlertIcon />
 			</IconButton>
 		</Box>
