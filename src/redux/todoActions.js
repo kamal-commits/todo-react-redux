@@ -34,7 +34,7 @@ export const deleteTodo = (id) => (dispatch) => {
 
 export const editTodo = (id) => (dispatch) => {
 	dispatch({
-		type: 'EDIT_TODO',
+		type: 'EDIT_TODO_REQUEST',
 		payload: id
 	})
 }
