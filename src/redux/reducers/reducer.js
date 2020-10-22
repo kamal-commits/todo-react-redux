@@ -15,11 +15,17 @@ export default (state = initialState, action) => {
 				loading: false
 			}
 
-		case 'EDIT_TODO':
+		case 'EDIT_TODO_REQUEST':
 			return {
 				...state,
-				todo: state.todo.filter((todo) =>
-					todo.id === action.payload ? { ...todo, update: true } : todo
+				todo: state.todo.map((todo) =>
+					todo.id === action.payload
+						? { ...todo, editRequest: !todo.editRequest }
+						: todo
+				),
+				loading: false
+			}
+
 		case 'UPDATE_TODO':
 			return {
 				...state,
