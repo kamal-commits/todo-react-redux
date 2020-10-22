@@ -20,6 +20,13 @@ export default (state = initialState, action) => {
 				...state,
 				todo: state.todo.filter((todo) =>
 					todo.id === action.payload ? { ...todo, update: true } : todo
+		case 'UPDATE_TODO':
+			return {
+				...state,
+				todo: state.todo.map((todo) =>
+					todo.id === action.id
+						? { ...todo, update: !todo.update, todo: action.todo }
+						: todo
 				),
 				loading: false
 			}
