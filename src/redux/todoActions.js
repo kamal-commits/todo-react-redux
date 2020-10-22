@@ -39,6 +39,14 @@ export const editTodo = (id) => (dispatch) => {
 	})
 }
 
+export const updateTodo = (id, todo) => (dispatch) => {
+	dispatch({
+		type: 'UPDATE_TODO',
+		todo,
+		id
+	})
+}
+
 export const SHOW_ALL = 'ALL'
 export const SHOW_COMPLETED = 'COMPLETED'
 export const SHOW_ACTIVE = 'ACTIVE'
